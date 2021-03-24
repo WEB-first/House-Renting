@@ -6,9 +6,10 @@
       <mt-tab-item id="3">租房</mt-tab-item>
       <mt-tab-item id="4">新房</mt-tab-item>
     </mt-navbar>
-    <mt-tab-container v-model="navactive" style="margin-top:50px">
+    <mt-tab-container v-model="navactive">
       <mt-tab-container-item id="1">
-        <recom-list></recom-list>   
+        <recom-list></recom-list>  
+        <recom-list></recom-list> 
       </mt-tab-container-item>
       <mt-tab-container-item id="2">
         二手房
@@ -23,14 +24,16 @@
   </div>
 </template>
 <style>
-  .mint-navbar .mint-tab-item.is-selected {
-    border-bottom: 3px solid cadetblue;
-    color: cadetblue;
+  .recommend .mint-navbar .mint-tab-item.is-selected {
+    border-bottom: 3px solid #22CA93;
+    color: #22CA93;
     font-weight: bold;
+}
+.recommend .mint-tab-container{
+  margin-top: 55px;
 }
 </style>
 <script>
-//引入的Header组件
 import RecomList from '../components/RecomList.vue'
 export default {
   components: { RecomList },

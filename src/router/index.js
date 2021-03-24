@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Detail from '../views/Detail.vue'
 import Article from '../views/Article.vue'
+import Recommend from '../views/Recommend.vue'
 
 Vue.use(VueRouter)
 
@@ -29,7 +30,12 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+  },
+  {
+    path: '/recommend',
+    name: 'Recommend',
+    component: Recommend
+  },
 ]
 
 const router = new VueRouter({
