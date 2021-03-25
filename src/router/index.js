@@ -1,67 +1,25 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
-import Mine from '../views/Mine.vue'
 import Detail from '../views/Detail.vue'
-import Article from '../views/Article.vue'
-import Recommend from '../views/Recommend.vue'
-import Info from '../components/Info.vue'
-import Info_more from '../components/Info_more.vue'
-import Info_more_add from '../components/Info_more_add.vue'
-import Info_more_email from '../components/Info_more_email.vue'
-import Info_more_sex from '../components/Info_more_sex.vue'
-import Info_more_phone from '../components/Info_more_phone.vue'
-import Info_updatepwd from '../components/Info_updatepwd.vue'
-import Info_updatepwd_forgetpwd from '../components/Info_updatepwd_forgetpwd.vue'
-import Info_uname from '../components/Info_uname.vue'
-import Info_mingzi from '../components/Info_mingzi.vue'
-
+import Talk from '../views/Talk.vue'
+import Phone from '../views/Phone.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/article',
-    name: 'Article',
-    component: Article
-  },
-  ,
-  {
-    path: '/article',
-    name: 'Article',
-    component: Article
+    path: '/Phone',
+    name: 'Phone',
+    component:Phone
   },
   {
-    path: '/detail',
-    name: 'Detail',
-    component: Detail
+    path: '/talk',
+    name: 'Talk',
+    component: Talk
   },
   {
-    path: '/recommend',
-    name: 'Recommend',
-    component: Recommend
-  },
-  {
-    path: '/info_uname',
-    name: 'Info_uname',
-    component: Info_uname
-  },
-  {
-    path: '/info_mingzi',
-    name: 'Info_mingzi',
-    component: Info_mingzi
-  },
-  {
-    path: '/info_updatepwd_forgetpwd',
-    name: 'Info_updatepwd_forgetpwd',
-    component: Info_updatepwd_forgetpwd
-  },
-  {
-    path: '/info_updatepwd',
-    name: 'Info_updatepwd',
-    component: Info_updatepwd
-  },
-  {
+<<<<<<< HEAD
     path: '/info_more_email',
     name: 'Info_more_email',
     component: Info_more_email
@@ -97,6 +55,8 @@ const routes = [
     component: Mine
   },
   {
+=======
+>>>>>>> 9a741447487f7e179465bf1cf007556b7571449b
     path: '/detail',
     name: 'Detail',
     component: Detail
@@ -107,10 +67,20 @@ const routes = [
     component: Home
   },
   {
+<<<<<<< HEAD
     path: '/recommend',
     name: 'Recommend',
     component: Recommend
   },
+=======
+    path: '/about',
+    name: 'About',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  }
+>>>>>>> 9a741447487f7e179465bf1cf007556b7571449b
 ]
 
 const router = new VueRouter({
