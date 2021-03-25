@@ -15,17 +15,18 @@ import Info_updatepwd from '../components/Info_updatepwd.vue'
 import Info_updatepwd_forgetpwd from '../components/Info_updatepwd_forgetpwd.vue'
 import Info_uname from '../components/Info_uname.vue'
 import Info_mingzi from '../components/Info_mingzi.vue'
+import Logout from '../components/Logout.vue'
+
 
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/article',
-    name: 'Article',
-    component: Article
+    path: '/logout',
+    name: 'Logout',
+    component: Logout
   },
-  ,
   {
     path: '/article',
     name: 'Article',

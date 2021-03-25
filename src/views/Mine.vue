@@ -2,7 +2,9 @@
     <div class="mine">
         <!-- 顶部 -->
         <mt-header>
-             <mt-button icon="more" slot="right"></mt-button>
+            <!-- <router-link > -->
+             <mt-button @click="logout" icon="more" slot="right"></mt-button>
+            <!-- </router-link> -->
         </mt-header>
         <!-- 上半部分div 。。。头像部分。。 -->
         <div id="top">
@@ -34,6 +36,9 @@
             </mt-cell>
             <!-- <mt-button type="default">退出登录</mt-button> -->
         </div>
+        <!-- footer -->
+   <my-footer :selected="selected"></my-footer>
+
     </div>
 </template>
 <style>
@@ -93,6 +98,9 @@ export default {
         }
     },
     methods:{
+        logout(){
+            this.$router.push("/logout")
+        }
     }
 }
 </script>
