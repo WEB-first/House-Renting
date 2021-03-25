@@ -59,7 +59,7 @@
   }
   .relist .list-bot>img{
     width: 100%;
-    height: 180px;
+    height: 160px;
   }
   .relist .list-bot>p{
     color: #37383B;
