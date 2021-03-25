@@ -25,6 +25,7 @@
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
             </mt-cell>
         </div>
+     <my-footer :selected="selected"></my-footer>
     </div>
 </template>
 <style>
@@ -37,7 +38,7 @@
     width: 100%;
     height:200px;
     display: flex;
-    background:cadetblue;
+    background:#36ab60;
     padding-top:90px;
 }
 .mine #avatar{
@@ -69,6 +70,7 @@ export default {
     name:"Mine",
     data(){
         return{
+            selected: "home",
         }
     },
     methods:{

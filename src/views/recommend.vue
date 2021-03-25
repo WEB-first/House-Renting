@@ -8,7 +8,7 @@
     </mt-navbar>
     <mt-tab-container v-model="navactive" style="margin-top:50px">
       <mt-tab-container-item id="1">
-        <recom-list></recom-list>   
+        <!-- <recom-list></recom-list>    -->
       </mt-tab-container-item>
       <mt-tab-container-item id="2">
         二手房
@@ -30,14 +30,14 @@
 }
 </style>
 <script>
-//引入的Header组件
-import RecomList from '../components/RecomList.vue'
-export default {
-  components: { RecomList },
-  data(){
-    return{
-       navactive : '1'
-    }
-  }
-}
+
+// import RecomList from '../components/RecomList.vue'
+// export default {
+//   components: { RecomList },
+//   data(){
+//     return{
+//        navactive : '1'
+//     }
+//   }
+// }
 </script>
