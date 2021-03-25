@@ -69,7 +69,8 @@ export default {
   props:[ 'selected' ],
   data(){
     return {
-      selected : selected
+      newsel: selected,
+      selected : newsel
     }
   },
   watch: {
