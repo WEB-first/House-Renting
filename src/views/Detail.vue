@@ -45,30 +45,22 @@
       </div>
       <!-- 详情二 -->
       <div class="detail">
-        <el-breadcrumb separator=" " class="detail_bc">
-          <el-breadcrumb-item>
-            <p class="detail_title">4室2厅2卫</p>
-            <span class="detail_small">房型</span>
-          </el-breadcrumb-item>
-          <el-breadcrumb-item class="detail_tag">
-            <p class="detail_title">25m<sup>2</sup></p>
-            <span class="detail_small">面积</span>
-          </el-breadcrumb-item>
-          <el-breadcrumb-item class="detail_tag">
-            <p class="detail_title">高/11层</p>
-            <span class="detail_small">楼层</span>
-          </el-breadcrumb-item>
-          <el-breadcrumb-item class="detail_tag">
-            <p class="detail_title">南</p>
-            <span class="detail_small">朝向</span>
-          </el-breadcrumb-item>
-        </el-breadcrumb>
+        <mt-cell class="detail_cell" title="4室2厅2卫" label="房型"></mt-cell>
+        <mt-cell class="detail_cell" title="25㎡" label="面积"></mt-cell>
+        <mt-cell class="detail_cell" title="高/11层" label="楼层"></mt-cell>
+        <mt-cell class="detail_cell" title="南" label="朝向"></mt-cell>
       </div>
       <!-- 详情三 -->
       <div class="detail">
-        <el-tag type="success" class="detail_tag">押一付一</el-tag>
-        <el-tag type="success" class="detail_tag">有电梯</el-tag>
-        <el-tag type="success" class="detail_tag">精装修</el-tag>
+        <mt-badge type="success" size="normal" class="detail_tag"
+          >押一付一</mt-badge
+        >
+        <mt-badge type="success" size="normal" class="detail_tag"
+          >有电梯</mt-badge
+        >
+        <mt-badge type="success" size="normal" class="detail_tag"
+          >精装修</mt-badge
+        >
       </div>
       <!-- 详情四 -->
       <div class="detail">
@@ -84,43 +76,44 @@
         <p class="detail_title">房源简介</p>
         <ul class="detail_ul">
           <li>
-            <img class="detail_img" src="../assets/style/1.jpg" alt="">
+            <!-- <i class="iconfont icon-xiaoxi"></i> -->
+            <img class="detail_img" src="../assets/style/1.jpg" alt="" />
             <p class="detail_small">洗衣机</p>
           </li>
           <li>
-            <img class="detail_img" src="../assets/style/2.jpg" alt="">
+            <img class="detail_img" src="../assets/style/2.jpg" alt="" />
             <p class="detail_small">空调</p>
           </li>
           <li>
-            <img class="detail_img" src="../assets/style/3.jpg" alt="">
+            <img class="detail_img" src="../assets/style/3.jpg" alt="" />
             <p class="detail_small">衣柜</p>
           </li>
           <li>
-            <img class="detail_img" src="../assets/style/4.jpg" alt="">
+            <img class="detail_img" src="../assets/style/4.jpg" alt="" />
             <p class="detail_small">热水器</p>
           </li>
           <li>
-            <img class="detail_img" src="../assets/style/5.jpg" alt="">
+            <img class="detail_img" src="../assets/style/5.jpg" alt="" />
             <p class="detail_small">床</p>
           </li>
           <li>
-            <img class="detail_img" src="../assets/style/6.jpg" alt="">
+            <img class="detail_img" src="../assets/style/6.jpg" alt="" />
             <p class="detail_small">暖气</p>
           </li>
           <li>
-            <img class="detail_img" src="../assets/style/7.jpg" alt="">
-            <p class="detail_small"> <del>天然气</del> </p>
+            <img class="detail_img" src="../assets/style/7.jpg" alt="" />
+            <p class="detail_small"><del>天然气</del></p>
           </li>
           <li>
-            <img class="detail_img" src="../assets/style/8.jpg" alt="">
+            <img class="detail_img" src="../assets/style/8.jpg" alt="" />
             <p class="detail_small">冰箱</p>
           </li>
           <li>
-            <img class="detail_img" src="../assets/style/9.jpg" alt="">
+            <img class="detail_img" src="../assets/style/9.jpg" alt="" />
             <p class="detail_small">电视机</p>
           </li>
           <li>
-            <img class="detail_img" src="../assets/style/10.jpg" alt="">
+            <img class="detail_img" src="../assets/style/10.jpg" alt="" />
             <p class="detail_small">宽带</p>
           </li>
         </ul>
@@ -129,11 +122,34 @@
     <!-- 底部 -->
     <div>
       <mt-tabbar v-model="selected" fixed>
-        <mt-tab-item id="shouye">
-          <i class="el-icon-chat-dot-square">微聊</i>  
+        <mt-tab-item id="detail">
+          <img
+            v-if="selected == 'detail'"
+            src="../assets/common/me_1.png"
+            slot="icon"
+          />
+          <img v-else src="../assets/common/me_0.png" slot="icon" />
+          详情
         </mt-tab-item>
-        <mt-tab-item id="me">
-          <i class="el-icon-phone-outline">电话</i>
+        <mt-tab-item id="talk">
+          <img
+            v-if="selected == 'talk'"
+            slot="icon"
+            src="../assets/common/cart_1.png"
+            alt=""
+          />
+          <img v-else slot="icon" src="../assets/common/cart_0.png" alt="" />
+          消息
+        </mt-tab-item>
+        <mt-tab-item id="phone">
+          <img
+            v-if="selected == 'phone'"
+            slot="icon"
+            src="../assets/common/main_1.png"
+            alt=""
+          />
+          <img v-else slot="icon" src="../assets/common/main_0.png" alt="" />
+          电话
         </mt-tab-item>
       </mt-tabbar>
     </div>
@@ -144,8 +160,19 @@ export default {
   data() {
     return {
       swipeHeight: "0px",
-      selected: "shouye",
+      selected: "detail",
     };
+  },
+  watch: {
+    selected(newvalue) {
+      if (newvalue == "detail") {
+        this.$router.push("/detail");
+      } else if (newvalue == "talk") {
+        this.$router.push("/talk");
+      } else if (newvalue == "phone") {
+        this.$router.push("/phone");
+      }
+    },
   },
   mounted() {
     console.log(window.screen.width);
@@ -163,19 +190,20 @@ export default {
   margin: 0 auto;
   width: 85%;
 }
-.detail_ul>li{
+.detail_cell {
+  display: inline-block;
+}
+
+.detail_ul > li {
   display: inline-block;
   width: 20%;
   text-align: center;
 }
-.detail_ul{
-  margin-top:10px;
+.detail_ul {
+  margin-top: 10px;
 }
-.detail_img{
+.detail_img {
   width: 60%;
-}
-.detail_bc{
-  text-align: center;
 }
 .detail_tag {
   margin-left: 10px;

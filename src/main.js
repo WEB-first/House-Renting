@@ -11,6 +11,7 @@ import 'mint-ui/lib/style.min.css'
 Vue.use(MintUI)
 
 
+
 axios.defaults.baseURL = 'http://127.0.0.1'
 Vue.prototype.axios = axios;
 Vue.config.productionTip = false
