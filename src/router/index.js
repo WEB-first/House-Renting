@@ -15,6 +15,8 @@ import Info_updatepwd from '../components/Info_updatepwd.vue'
 import Info_updatepwd_forgetpwd from '../components/Info_updatepwd_forgetpwd.vue'
 import Info_uname from '../components/Info_uname.vue'
 import Info_mingzi from '../components/Info_mingzi.vue'
+import Phone from '../views/Phone.vue'
+import Talk from '../views/Talk.vue'
 
 
 Vue.use(VueRouter)
@@ -25,16 +27,20 @@ const routes = [
     name: 'Article',
     component: Article
   },
-  ,
-  {
-    path: '/article',
-    name: 'Article',
-    component: Article
-  },
   {
     path: '/detail',
     name: 'Detail',
-    component: Detail
+    component: Detail,
+  },
+  {
+    path: '/phone',
+    name: 'Phone',
+    component: Phone,
+  },
+  {
+    path: '/talk',
+    name: 'Talk',
+    component: Talk,
   },
   {
     path: '/recommend',

@@ -7,13 +7,7 @@
     </mt-header>
     <!-- 轮番图 -->
     <mt-swipe
-      class="mtswipe"
-      :style="{ height: swipeHeight }"
-      :auto="5000"
-      :speed="1000"
-      :show-indicators="false"
-      :continuous="false"
-    >
+      class="mtswipe" :style="{ height: swipeHeight }" :auto="5000" :speed="1000" :show-indicators="false" :continuous="false">
       <mt-swipe-item>
         <img src="../assets/1.jpg" alt="" />
       </mt-swipe-item>
@@ -38,9 +32,7 @@
           整租|凤城一路 居然之家 海景台北湾 两室一厅 精装全配 随时看房
         </p>
         <p id="detail_p">
-          <span id="price">2200</span>元/月<span class="detail_small"
-            >押一付一</span
-          >
+          <span id="price">2200</span>元/月<span class="detail_small">押一付一</span>
         </p>
       </div>
       <!-- 详情二 -->
@@ -52,15 +44,12 @@
       </div>
       <!-- 详情三 -->
       <div class="detail">
-        <mt-badge type="success" size="normal" class="detail_tag"
-          >押一付一</mt-badge
-        >
-        <mt-badge type="success" size="normal" class="detail_tag"
-          >有电梯</mt-badge
-        >
-        <mt-badge type="success" size="normal" class="detail_tag"
-          >精装修</mt-badge
-        >
+        <mt-badge type="success" size="normal" class="detail_tag">押一付一
+        </mt-badge>
+        <mt-badge type="success" size="normal" class="detail_tag">有电梯
+        </mt-badge>
+        <mt-badge type="success" size="normal" class="detail_tag">精装修
+        </mt-badge>
       </div>
       <!-- 详情四 -->
       <div class="detail">
@@ -123,31 +112,17 @@
     <div>
       <mt-tabbar v-model="selected" fixed>
         <mt-tab-item id="detail">
-          <img
-            v-if="selected == 'detail'"
-            src="../assets/common/me_1.png"
-            slot="icon"
-          />
+          <img v-if="selected == 'detail'" src="../assets/common/me_1.png" slot="icon"/>
           <img v-else src="../assets/common/me_0.png" slot="icon" />
           详情
         </mt-tab-item>
         <mt-tab-item id="talk">
-          <img
-            v-if="selected == 'talk'"
-            slot="icon"
-            src="../assets/common/cart_1.png"
-            alt=""
-          />
+          <img  v-if="selected == 'talk'" slot="icon" src="../assets/common/cart_1.png" alt=""/>
           <img v-else slot="icon" src="../assets/common/cart_0.png" alt="" />
           消息
         </mt-tab-item>
         <mt-tab-item id="phone">
-          <img
-            v-if="selected == 'phone'"
-            slot="icon"
-            src="../assets/common/main_1.png"
-            alt=""
-          />
+          <img v-if="selected == 'phone'" slot="icon" src="../assets/common/main_1.png" alt=""/>
           <img v-else slot="icon" src="../assets/common/main_0.png" alt="" />
           电话
         </mt-tab-item>
