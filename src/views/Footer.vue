@@ -70,7 +70,7 @@ export default {
   data(){
     return {
       newsel: selected,
-      selected : newsel
+      selected : newsel ?`${selected}`:'home'
     }
   },
   watch: {
