@@ -1,22 +1,65 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import Mine from '../views/Mine.vue'
 import Detail from '../views/Detail.vue'
-import Talk from '../views/Talk.vue'
-import Phone from '../views/Phone.vue'
+import Article from '../views/Article.vue'
+import Recommend from '../views/Recommend.vue'
+import Info from '../components/Info.vue'
+import Info_more from '../components/Info_more.vue'
+import Info_more_add from '../components/Info_more_add.vue'
+import Info_more_email from '../components/Info_more_email.vue'
+import Info_more_sex from '../components/Info_more_sex.vue'
+import Info_more_phone from '../components/Info_more_phone.vue'
+import Info_updatepwd from '../components/Info_updatepwd.vue'
+import Info_updatepwd_forgetpwd from '../components/Info_updatepwd_forgetpwd.vue'
+import Info_uname from '../components/Info_uname.vue'
+import Info_mingzi from '../components/Info_mingzi.vue'
+
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/Phone',
-    name: 'Phone',
-    component:Phone
+    path: '/article',
+    name: 'Article',
+    component: Article
+  },
+  ,
+  {
+    path: '/article',
+    name: 'Article',
+    component: Article
   },
   {
-    path: '/talk',
-    name: 'Talk',
-    component: Talk
+    path: '/detail',
+    name: 'Detail',
+    component: Detail
+  },
+  {
+    path: '/recommend',
+    name: 'Recommend',
+    component: Recommend
+  },
+  {
+    path: '/info_uname',
+    name: 'Info_uname',
+    component: Info_uname
+  },
+  {
+    path: '/info_mingzi',
+    name: 'Info_mingzi',
+    component: Info_mingzi
+  },
+  {
+    path: '/info_updatepwd_forgetpwd',
+    name: 'Info_updatepwd_forgetpwd',
+    component: Info_updatepwd_forgetpwd
+  },
+  {
+    path: '/info_updatepwd',
+    name: 'Info_updatepwd',
+    component: Info_updatepwd
   },
   {
     path: '/info_more_email',
