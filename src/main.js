@@ -10,9 +10,6 @@ import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.min.css'
 Vue.use(MintUI)
 
-import Elem from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-Vue.use(Elem)
 
 
 axios.defaults.baseURL = 'http://127.0.0.1'
