@@ -1,57 +1,10 @@
-<<<<<<< HEAD
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Detail from '../views/Detail.vue'
-import Article from '../views/Article.vue'
-import Recommend from '../views/Recommend.vue'
-
-Vue.use(VueRouter)
-
-const routes = [
-  {
-    path: '/article',
-    name: 'Article',
-    component: Article
-  },
-  {
-    path: '/detail',
-    name: 'Detail',
-    component: Detail
-  },
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  },
-  {
-    path: '/recommend',
-    name: 'Recommend',
-    component: Recommend
-  },
-]
-
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
-
-export default router
-=======
-<<<<<<< HEAD
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Mine from '../views/Mine.vue'
+import Detail from '../views/Detail.vue'
+import Article from '../views/Article.vue'
+import Recommend from '../views/Recommend.vue'
 import Info from '../components/Info.vue'
 import Info_more from '../components/Info_more.vue'
 import Info_more_add from '../components/Info_more_add.vue'
@@ -73,6 +26,21 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/article',
+    name: 'Article',
+    component: Article
+  },
+  {
+    path: '/detail',
+    name: 'Detail',
+    component: Detail
+  },
+  {
+    path: '/recommend',
+    name: 'Recommend',
+    component: Recommend
   },
   {
     path: '/info_uname',
@@ -146,47 +114,4 @@ const router = new VueRouter({
 })
 
 export default router
-=======
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
-import Detail from '../views/Detail.vue'
-import Article from '../views/Article.vue'
 
-Vue.use(VueRouter)
-
-const routes = [
-  {
-    path: '/article',
-    name: 'Article',
-    component: Article
-  },
-  {
-    path: '/detail',
-    name: 'Detail',
-    component: Detail
-  },
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
-
-const router = new VueRouter({
-  mode: 'history',
-  base: process.env.BASE_URL,
-  routes
-})
-
-export default router
->>>>>>> 594b0018069db21474cd0d6ab76937ae6e480ed1
->>>>>>> 4d64a3944df67b81d93f5d1d1d9fe4f8531ec2c5
