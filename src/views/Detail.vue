@@ -2,7 +2,7 @@
   <div>
     <!-- 头部 -->
     <mt-header fixed>
-      <mt-button icon="back" slot="left"></mt-button>
+      <mt-button icon="back" slot="left" @click="go"></mt-button>
       <mt-button icon="more" slot="right"></mt-button>
     </mt-header>
     <!-- 轮番图 -->
@@ -137,6 +137,11 @@ export default {
       swipeHeight: "0px",
       selected: "detail",
     };
+  },
+  methods:{
+    go(){
+      this.$router.push('/article');
+    }
   },
   watch: {
     selected(newvalue) {
