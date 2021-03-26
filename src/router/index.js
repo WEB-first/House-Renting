@@ -17,11 +17,18 @@ import Info_uname from '../components/Info_uname.vue'
 import Info_mingzi from '../components/Info_mingzi.vue'
 import Phone from '../views/Phone.vue'
 import Talk from '../views/Talk.vue'
+import Logout from '../components/Logout.vue'
+
 
 
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/logout',
+    name: 'Logout',
+    component: Logout
+  },
   {
     path: '/article',
     name: 'Article',
