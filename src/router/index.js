@@ -16,16 +16,29 @@ import Info_updatepwd_forgetpwd from '../components/Info_updatepwd_forgetpwd.vue
 import Info_uname from '../components/Info_uname.vue'
 import Info_mingzi from '../components/Info_mingzi.vue'
 import Logout from '../components/Logout.vue'
-
+import Login from '../views/Login.vue'
+import Phone from '../views/Phone.vue'
+import Talk from '../views/Talk.vue'
+import Register from '../views/Register.vue'
 
 
 Vue.use(VueRouter)
 
 const routes = [
   {
+    path: '/register',
+    name: 'Register',
+    component: Register
+  },
+  {
     path: '/logout',
     name: 'Logout',
     component: Logout
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
   },
   {
     path: '/article',
@@ -36,6 +49,16 @@ const routes = [
     path: '/detail',
     name: 'Detail',
     component: Detail
+  },
+  {
+    path: '/phone',
+    name: 'Phone',
+    component: Phone
+  },
+  {
+    path: '/talk',
+    name: 'Talk',
+    component: Talk
   },
   {
     path: '/recommend',
@@ -98,22 +121,11 @@ const routes = [
     component: Mine
   },
   {
-    path: '/detail',
-    name: 'Detail',
-    component: Detail
-  },
-  {
     path: '/',
     name: 'Home',
     component: Home
-  },
-  {
-    path: '/recommend',
-    name: 'Recommend',
-    component: Recommend
-  },
+  }
 ]
-
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,

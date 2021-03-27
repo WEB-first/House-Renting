@@ -1,0 +1,59 @@
+<template>
+    <div class="login">
+        <!-- 顶部 -->
+        <mt-header fixed>
+          <router-link to="/" slot="left">
+            <mt-button icon="back"></mt-button>
+          </router-link>
+          <!-- <router-link to="/register" slot="right">
+            <mt-button>注册</mt-button>
+          </router-link> -->
+        </mt-header>
+        <!-- 下方 -->
+        <div id="login">
+            <p>欢迎登录</p>
+            <router-link id="link" to="/register">注册新用户</router-link>
+            <!-- <span>注册一个新用户?</span> -->
+            <mt-field id="mt-field" placeholder="请输入账户" v-model="username"></mt-field>
+            <mt-field placeholder="请输入密码" type="password" v-modal="password"></mt-field>
+        </div>
+        <mt-button id="btn-login" type="danger" size="large" disabled>登录</mt-button>
+    </div>
+</template>
+<style>
+.login .mint-header{
+    background-color: #fff;
+    height: 50px;
+    font-size: 16px;
+    color: black;
+}
+.login #login{
+    margin-top:50px;
+    padding:10px;
+}
+.login #login p{
+    font-size: 40px;
+    margin-top: 25px;
+    margin-left: 10px;
+    margin-bottom: 15px;
+}
+.login #link{
+    color:#66b081;
+    margin-left: 10px;
+    font-size: 20px;
+}
+.login #mt-field{
+    margin-top:30px ;
+}
+.login .mint-cell-wrapper{
+    background-size: 120% 0px;
+}
+.login .mint-button--danger{
+    height: 50px;
+    background-color:#66b081 !important ;
+    width: 340px;
+    border-radius: 40px;
+    margin: 50px auto;
+
+}
+</style>
