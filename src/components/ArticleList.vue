@@ -1,6 +1,6 @@
 <template>
   <div class="articleItem">
-    <router-link to="/">
+    <router-link to="/detail">
       <!-- 图像 -->
       <div class="article-img">
         <img src="../assets/1.jpg" />
