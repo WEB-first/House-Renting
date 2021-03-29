@@ -34,6 +34,7 @@
             </mt-cell>
             <!-- <mt-button type="default">退出登录</mt-button> -->
         </div>
+        <my-footer :select="selected"></my-footer>
     </div>
 </template>
 <style>
@@ -90,6 +91,7 @@ export default {
     name:"Mine",
     data(){
         return{
+           selected:'mine'
         }
     },
     methods:{

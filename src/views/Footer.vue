@@ -66,13 +66,17 @@
 </template>
 <script>
 export default {
-  props:[ 'selected' ],
   data(){
     return {
-      newsel: selected,
-      selected : newsel ?`${selected}`:'home'
+      selected:this.select
     }
   },
+   props: {
+    select: {
+        type: String, 
+
+         }
+      },
   watch: {
     // 监听器，监听变量的更新
     selected(newvalue) {
@@ -89,7 +93,7 @@ export default {
     }
   },
   mounted(){
-    console.log(this.selected)
+    // console.log(this.selected)
   }
 }
 </script>

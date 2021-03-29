@@ -15,15 +15,16 @@ import Info_updatepwd from '../components/Info_updatepwd.vue'
 import Info_updatepwd_forgetpwd from '../components/Info_updatepwd_forgetpwd.vue'
 import Info_uname from '../components/Info_uname.vue'
 import Info_mingzi from '../components/Info_mingzi.vue'
+import Talk from '../views/Talk'
 
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/article',
-    name: 'Article',
-    component: Article
+    path: '/talk',
+    name: 'Talk',
+    component: Talk
   },
   ,
   {
@@ -97,20 +98,10 @@ const routes = [
     component: Mine
   },
   {
-    path: '/detail',
-    name: 'Detail',
-    component: Detail
-  },
-  {
     path: '/',
     name: 'Home',
     component: Home
-  },
-  {
-    path: '/recommend',
-    name: 'Recommend',
-    component: Recommend
-  },
+  }
 ]
 
 const router = new VueRouter({

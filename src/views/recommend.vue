@@ -8,7 +8,7 @@
     </mt-navbar>
     <mt-tab-container v-model="navactive">
       <mt-tab-container-item id="1">
-        <!-- <recom-list></recom-list>    -->
+        <recom-list></recom-list>   
       </mt-tab-container-item>
       <mt-tab-container-item id="2">
         二手房
@@ -20,6 +20,7 @@
         新房
       </mt-tab-container-item>
     </mt-tab-container>
+    <my-footer :select="selected"></my-footer>
   </div>
 </template>
 <style>
@@ -39,7 +40,8 @@ export default {
   components: { RecomList },
   data(){
     return{
-       navactive : '1'
+       navactive : '1',
+       selected:'recommend'
     }
   }
 }
