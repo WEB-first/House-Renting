@@ -2,42 +2,17 @@
   <div>
      <mt-tabbar v-model="selected" fixed>
       <mt-tab-item id="home">
-        <img
-          v-if="selected == 'home'"
-          slot="icon"
-          src="image/home/icon/nav-icon-jiaoshixinxi_active.svg"
-          alt=""
-        />
-        <img
-          v-else
-          slot="icon"
-          src="image/home/icon/nav-icon-jiaoshixinxi.svg"
-          alt=""
-        />
+        <img v-if="selected == 'home'"  slot="icon"  src="image/home/icon/nav-icon-jiaoshixinxi_active.svg"  alt="" />
+        <img  v-else  slot="icon"  src="image/home/icon/nav-icon-jiaoshixinxi.svg"  alt="" />
         首页
       </mt-tab-item>
       <mt-tab-item id="message">
-        <img
-          v-if="selected == 'message'"
-          slot="icon"
-          src="image/home/icon/nav-icon-gonggao_active.svg"
-          alt=""
-        />
-        <img
-          v-else
-          slot="icon"
-          src="image/home/icon/nav-icon-gonggao.svg"
-          alt=""
-        />
+        <img  v-if="selected == 'message'"  slot="icon" src="image/home/icon/nav-icon-gonggao_active.svg"  alt="" />
+        <img  v-else  slot="icon"  src="image/home/icon/nav-icon-gonggao.svg"  alt="" />
         消息
       </mt-tab-item>
       <mt-tab-item id="recommend">
-        <img
-          v-if="selected == 'recommend'"
-          slot="icon"
-          src="image/home/icon/nav-icon-baseinfo_active.svg"
-          alt=""
-        />
+        <img  v-if="selected == 'recommend'"  slot="icon"  src="image/home/icon/nav-icon-baseinfo_active.svg"  alt=""  />
         <img
           v-else
           slot="icon"

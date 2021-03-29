@@ -26,7 +26,6 @@ const routes = [
     name: 'Talk',
     component: Talk
   },
-  ,
   {
     path: '/article',
     name: 'Article',
@@ -36,6 +35,16 @@ const routes = [
     path: '/detail',
     name: 'Detail',
     component: Detail
+  },
+  {
+    path: '/phone',
+    name: 'Phone',
+    component: Phone
+  },
+  {
+    path: '/talk',
+    name: 'Talk',
+    component: Talk
   },
   {
     path: '/recommend',
@@ -103,7 +112,6 @@ const routes = [
     component: Home
   }
 ]
-
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,

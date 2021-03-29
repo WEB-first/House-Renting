@@ -1,1 +1,12 @@
-<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1616496857986" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9628" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style type="text/css"></style></defs><path d="M768 204.8H256v563.2h512V204.8zM256 102.4a102.4 102.4 0 0 0-102.4 102.4v563.2a102.4 102.4 0 0 0 102.4 102.4h512a102.4 102.4 0 0 0 102.4-102.4V204.8a102.4 102.4 0 0 0-102.4-102.4H256z" fill="#94E1E8" p-id="9629"></path><path d="M435.2 409.6a76.8 76.8 0 1 0 0-153.6 76.8 76.8 0 0 0 0 153.6zM358.4 512a51.2 51.2 0 1 0 0 102.4h307.2a51.2 51.2 0 1 0 0-102.4H358.4z" fill="#73DEBF" p-id="9630"></path></svg>
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg t="1616496857986" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="9628" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200">
+<defs>
+<style type="text/css">
+</style>
+</defs>
+<path d="M768 204.8H256v563.2h512V204.8zM256 102.4a102.4 102.4 0 0 0-102.4 102.4v563.2a102.4 102.4 0 0 0 102.4 102.4h512a102.4 102.4 0 0 0 102.4-102.4V204.8a102.4 102.4 0 0 0-102.4-102.4H256z" fill="#94E1E8" p-id="9629">
+</path>
+<path d="M435.2 409.6a76.8 76.8 0 1 0 0-153.6 76.8 76.8 0 0 0 0 153.6zM358.4 512a51.2 51.2 0 1 0 0 102.4h307.2a51.2 51.2 0 1 0 0-102.4H358.4z" fill="#73DEBF" p-id="9630">
+</path>
+</svg>

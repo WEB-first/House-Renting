@@ -2,7 +2,9 @@
     <div class="mine">
         <!-- 顶部 -->
         <mt-header>
-             <mt-button icon="more" slot="right"></mt-button>
+            <!-- <router-link > -->
+             <mt-button @click="logout" icon="more" slot="right"></mt-button>
+            <!-- </router-link> -->
         </mt-header>
         <!-- 上半部分div 。。。头像部分。。 -->
         <div id="top">
@@ -26,10 +28,10 @@
             <mt-cell title="设置">
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
             </mt-cell>
-            <mt-cell title="我的问答">
+            <mt-cell title="互动">
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
             </mt-cell>
-            <mt-cell title="文章列表">
+            <mt-cell title="我的问答">
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
             </mt-cell>
             <!-- <mt-button type="default">退出登录</mt-button> -->
@@ -95,6 +97,9 @@ export default {
         }
     },
     methods:{
+        logout(){
+            this.$router.push("/logout")
+        }
     }
 }
 </script>
