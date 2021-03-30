@@ -108,6 +108,7 @@
         </ul>
       </div>
     </div>
+    <div class="blank"></div>
     <!-- 底部 -->
     <div>
       <mt-tabbar v-model="selected" fixed>
@@ -209,6 +210,9 @@ export default {
   margin-left: 5px;
   font-size: 10px;
   color: grey;
+}
+.blank{
+  height: 42px;
 }
 .mint-header {
   opacity: 0.4;
