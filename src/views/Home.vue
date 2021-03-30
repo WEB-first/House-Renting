@@ -37,12 +37,6 @@
     <div class="artic">
         <h3 style="margin-left:5px;color:#333">猜你喜欢</h3>
         <article-list></article-list>  
-        <article-list></article-list>
-        <article-list></article-list>        
-        <article-list></article-list>
-        <article-list></article-list>
-        <article-list></article-list>
-        <article-list></article-list>
     </div>
     <!-- 底部选项卡 -->
    <my-footer :select="selected"></my-footer>
