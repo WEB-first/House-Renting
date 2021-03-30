@@ -16,6 +16,7 @@ import Info_updatepwd_forgetpwd from '../components/Info_updatepwd_forgetpwd.vue
 import Info_uname from '../components/Info_uname.vue'
 import Info_mingzi from '../components/Info_mingzi.vue'
 import Talk from '../views/Talk'
+import Phone from '../views/Phone'
 
 
 Vue.use(VueRouter)
