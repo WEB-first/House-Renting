@@ -10,7 +10,7 @@
         <div id="avatar">
             <img src="../assets/logo.png" alt="" width="100" height="100">
             <p>用户名</p>
-            <mt-button id="btn-logout" size="large" plain>退出此账号</mt-button>
+            <mt-button id="btn-logout" size="large" plain @click="toLogout">退出此账号</mt-button>
         </div>
     </div>
 </template>
@@ -33,3 +33,26 @@
     margin-top:60px;
 }
 </style>
+<script>
+export default {
+    name:"Logout",
+    data(){
+        return{
+        }
+    },
+    methods:{
+        toLogout(){
+            console.log( 11)
+            let ss=window.sessionStorage
+            ss.setItem('isLogin',0)
+            this.$store.commit('loginSuccess','')
+            this.$store.state.isLogin=false
+            ss.setItem('userInfo','')
+            this.$router.push("/")
+            console.log(this.$store.state.isLogin)
+            console.log(this.$store.state.userInfo.uname)
+
+        }
+    }
+}
+</script>

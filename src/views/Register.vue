@@ -17,15 +17,8 @@
             <mt-field label="密码" placeholder="请输入密码" type="password" v-modal="password"></mt-field>
             <mt-field label="确认密码" placeholder="再次输入密码" type="password" v-modal="password"></mt-field>
             <mt-field label="手机号" placeholder="输入手机号" type="tel" v-model="phone"></mt-field>
-            <!-- <mt-field label="身份证" placeholder="请输入身份证号码" type="testarea" v-model="number"></mt-field> -->
-            <mt-field label="邮箱" placeholder="请输入邮箱" v-model="email"></mt-field>
-            <!-- <mt-popup
-              v-model="popupVisible"
-              position="bottom">
-              <mt-field label="身份证" placeholder="请输入身份证号码" type="testarea" v-model="number"></mt-field>
-            </mt-popup> -->
-
-            
+            <mt-field label="身份证" placeholder="请输入身份证号码" type="testarea" v-model="number"></mt-field>
+            <mt-field label="邮箱" placeholder="请输入邮箱" v-model="email"></mt-field>    
         </div>
         <mt-button id="btn-login" type="danger" size="large" disabled>注册</mt-button>
     </div>
@@ -38,7 +31,7 @@
     color: black;
 }
 .register #register{
-    margin-top: 50px;
+    margin-top: 65px;
     padding-left: 10px;
 }
 .register #register p{
@@ -46,7 +39,7 @@
     margin-left: 10px;
 }
 .register #uname{
-    margin-top: 10px;
+    margin-top: 15px;
 }
 .register .mint-cell-wrapper{
     background-size: 120% 0px;
