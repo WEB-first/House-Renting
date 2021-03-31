@@ -12,6 +12,7 @@
         <!-- 下方 -->
         <div id="register">
             <p>新用户注册</p>
+<<<<<<< HEAD
             <mt-field id="uname" label="用户名" placeholder="请输入用户名" v-model="username"></mt-field>
             <mt-field label="昵称" placeholder="为自己设置一个昵称吧" v-model="username"></mt-field>
             <mt-field label="密码" placeholder="请输入密码" type="password" v-modal="password"></mt-field>
@@ -19,10 +20,122 @@
             <mt-field label="手机号" placeholder="输入手机号" type="tel" v-model="phone"></mt-field>
             <mt-field label="身份证" placeholder="请输入身份证号码" type="testarea" v-model="number"></mt-field>
             <mt-field label="邮箱" placeholder="请输入邮箱" v-model="email"></mt-field>    
+=======
+            <mt-field id="uname" @blur.native.capture="checkUsername" label="用户名" placeholder="请输入用户名" v-model="uname" :state="unameState"></mt-field>
+            <mt-field label="昵称"  placeholder="为自己设置一个昵称吧" v-model="username"></mt-field>
+            <mt-field label="密码" @blur.native.capture="checkUpwd" placeholder="请输入密码" type="password" v-model="upwd" :state="upwdState"></mt-field>
+            <mt-field label="确认密码" @blur.native.capture="checkCpwd" placeholder="再次输入密码" type="password" v-model="cpwd" :state="cpwdState"></mt-field>
+            <mt-field label="手机号" @blur.native.capture="checkPhone" :state="phoneState" placeholder="输入手机号" type="tel" v-model="phone"></mt-field>
+            <mt-field label="身份证" @blur.native.capture="checkIdcard" :state="numberState" placeholder="请输入身份证号码" type="testarea" v-model="number"></mt-field>
+            <mt-field label="邮箱" placeholder="请输入邮箱" v-model="email" @blur.native.capture="checkEmail" :state="emailState"></mt-field>
+>>>>>>> 85c95db95bd72e23f65e8959374a4fdaaf845f68
         </div>
-        <mt-button id="btn-login" type="danger" size="large" disabled>注册</mt-button>
+        <mt-button @click="checkFrom" id="btn-login" type="danger" size="large">注册</mt-button>
     </div>
 </template>
+<script>
+export default {
+  data(){
+    return {
+      uname:"",
+      username:"",
+      upwd:"",
+      cpwd:"",
+      phone:"",
+      email:"",
+      number:"",
+      unameState:"",
+      upwdState:"",
+      cpwdState:"",
+      phoneState:"",
+      emailState:"",
+      numberState:""
+    }
+  },
+  methods:{
+    checkFrom(){
+      if(this.checkUsername()&&this.checkUpwd()&&this.checkCpwd()&&this.checkPhone()&&this.checkEmail()&&this.checkIdcard()){
+        this.axios.post('/sinup',
+        `uname=${this.uname}&nickname=${this.username}&upwd=${this.upwd}&shengfenID=${this.number}&phone=${this.phone}&e-mail=${this.email}`).then(res=>{
+            console.log(res)
+          if(res.data.code == 200){
+            this.$toast(`注册成功`)
+            // this.$messagebox('提示','是否跳转登录?')
+            this.$router.push(`/login`)
+          }else{
+              this.$toast({
+                message:`注册失败:`+res.data.message,
+                position:'bottom',
+                duration:3000
+              })
+          }
+        })
+      }else{
+        alert(`格式有误，请重新输入`)
+      }
+    }
+    ,checkUsername(){
+      var reg=/^\w{6,15}$/;
+      if(reg.test(this.uname)){
+        this.unameState='success';
+        return true;
+      }else{
+        this.unameState='error';
+        return false;
+      }
+    },
+    checkUpwd(){
+      var reg=/^\w{6,12}$/;
+      if(reg.test(this.upwd)){
+        this.upwdState='success';
+        return true;
+      }else{
+        this.upwdState='error';
+        return false;
+      }
+    },
+    checkCpwd(){
+      if(this.upwd==this.cpwd){
+       this.cpwdState='success';
+       return true;
+      }else{
+        this.cpwdState='error'
+        return false;
+      }
+    },
+     checkPhone(){
+      var reg=/^1[3-9]\d{9}$/;
+      if(reg.test(this.phone)){
+        this.phoneState='success';
+        return true;
+      }else{
+        this.phoneState='error';
+        return false;
+      }
+    },
+    checkEmail(){
+      var reg= /^([A-Za-z0-9_\-\.\u4e00-\u9fa5])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,8})$/;
+      if(reg.test(this.email)){
+        this.emailState='success';
+        return true;
+      }else{
+        this.emailState='error';
+        return false;
+      }
+    },
+    checkIdcard(){
+      var reg=/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/;
+      if(reg.test(this.number)){
+        this.numberState='success';
+        return true;
+      }else{
+        this.numberState='error';
+        return false;
+      }
+    },
+  }
+}
+</script>
 <style>
 .register .mint-header{
     background-color: #fff;
