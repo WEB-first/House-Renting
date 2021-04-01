@@ -18,11 +18,29 @@ import Info_uname from '../components/Info_uname.vue'
 import Info_mingzi from '../components/Info_mingzi.vue'
 import Talk from '../views/Talk'
 import Register from '../views/Register'
+import Login from '../views/Login'
+import Search from '../views/Search'
+import Address from '../views/Address'
 
 
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/address',
+    name: 'Address',
+    component: Address
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: Search
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
   {
     path: '/register',
     name: 'Register',

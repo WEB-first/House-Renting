@@ -2,16 +2,13 @@
   <div>
     <!-- 头部标题栏 -->
     <div id="header">
-      <select id="option">
-        <option>西安</option>
-      </select>
-      <input type="text" id="search" placeholder="你想住哪里?" />
+      <router-link to="/address" id="option">西安</router-link> 
+      <input type="text" @click="search" id="search" placeholder="你想住哪里?" />
       <span>热搜:</span>
       <router-link to="/detail?id=1" style="margin-left:5px;color:#333">曲江观邸</router-link>
       <router-link to="/detail?id=1" style="margin-left:5px;color:#333">融创东方宸院</router-link>
       <router-link to="/detail?id=1" style="margin-left:5px;color:#333">紫郡长安</router-link>
       <router-link to="/detail?id=1" style="margin-left:5px;color:#333">融侨馨苑</router-link>
-
     </div>
     
     <!-- 面板 -->
@@ -65,6 +62,9 @@ export default {
       let height = Math.floor((picheight * screenwidth) / picwidth) + "px";
       this.swipeHeight = height;
     },
+    search(){
+      this.$router.push('/search')
+    }
   },
   mounted() {
     // 初始化轮播图的高度
@@ -80,10 +80,12 @@ export default {
     left: 8px;
     font: 12px "微软雅黑";
 
+
 }
 #search {
   width: 360px;
   height: 50px;
+  font-size: 16px;
   padding-left:70px ;
 }
 #option{
@@ -94,6 +96,10 @@ export default {
   height: 48px;
   z-index: 10;
   border: 0;
+  font-size: 16px;
+  color: #333;
+  line-height: 45px;
+  text-align: center;
   background-color: #fff;
 }
 
