@@ -1,8 +1,12 @@
 <template>
 <div>
   <mt-search v-model="value"></mt-search>
-  <span v-if="result.length!==0">{{result[0].a_area}}</span>
-  <span v-else></span>
+  <div  v-if="result.length!==0" style="position:absolute;z-index:10">
+    <div v-for="(item,i) of result" :key="i">
+  <router-link :to="`/detail?id=`+`${item.aid}`">{{item.a_area}}</router-link>
+    </div>
+  </div>
+  
 </div>
 </template>
 <script>
@@ -17,7 +21,9 @@ export default {
     value(newvalue){
       this.axios.post('/search',`sear=${newvalue}`).then(res=>{
         this.result = res.data
-        console.log( res.data[0].a_area)
+        if(!newvalue){
+          this.result = []
+        }
       })
     }
   }
@@ -27,4 +33,5 @@ export default {
 .mint-search{
   height: 8vh;
 }
+
 </style>

@@ -49,12 +49,12 @@ export default {
         login(){
             if (this.checkuname()==true){
                 this.axios.post('/login',`uname=${this.uname}&upwd=${this.pwd}`).then(res=>{
-                    // console.log(res.data.result)
-                    if(res.data.code==200){
+                    console.log(res)
+                    if(res.status==200){
                         this.$indicator.open("登录中...")
                          //获取用户信息
                             let userInfo=res.data.result;
-                            // this.$store.commit('loginSuccess',userInfo)
+                            this.$store.commit('loginSuccess',userInfo)
                             let ss=window.sessionStorage
                             ss.setItem('isLogin',1)
                             ss.setItem('userInfo',JSON.stringify(userInfo))

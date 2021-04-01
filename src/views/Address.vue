@@ -12,6 +12,17 @@
 </mt-cell>
 </div>
 </template>
+<script>
+export default {
+  data(){
+    return{
+      value:''
+    }
+  }
+}
+</script>
+
+
 <style scoped>
 .mint-search{
   height: 7vh;
