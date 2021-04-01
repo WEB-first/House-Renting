@@ -2,15 +2,13 @@
     <div class="mine">
         <!-- 顶部 -->
         <mt-header>
-            <!-- <router-link > -->
              <mt-button @click="logout" icon="more" slot="right"></mt-button>
-            <!-- </router-link> -->
         </mt-header>
         <!-- 上半部分div 。。。头像部分。。 -->
         <div id="top">
             <div id="avatar"><img src="../assets/logo.png" alt="../assets/logo.png"></div>
             <div>
-                <p v-if="this.$store.state.isLogin">{{this.$store.state.userInfo.nickname}}</p>
+                <p v-if="isLogin">{{userInfo.nickname}}</p>
                 <p v-else @click="toLogin">快去登录吧</p>
                 <p>
                     <router-link v-if="this.$store.state.isLogin" to="/info">个人中心</router-link> 
@@ -19,22 +17,21 @@
         </div>
         <!-- 下半部分   。。。。信息页 -->
         <div id="bottom">
-            <mt-cell title="关注">
+            <mt-cell title="关注" @click="unLog">
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
             </mt-cell>
-            <mt-cell title="足迹">
+            <mt-cell title="足迹" @click="unLog">
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
             </mt-cell>
             <mt-cell title="设置">
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
             </mt-cell>
-            <mt-cell title="互动">
+            <mt-cell title="互动" @click="unLog">
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
             </mt-cell>
-            <mt-cell title="我的问答">
+            <mt-cell @click="unLog"  title="我的问答">
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
             </mt-cell>
-            <!-- <mt-button type="default">退出登录</mt-button> -->
         </div>
         <my-footer :select="selected"></my-footer>
     </div>
@@ -89,8 +86,12 @@
 }
 </style>
 <script>
+import { mapState } from 'vuex'
 export default {
     name:"Mine",
+    computed:{
+        ...mapState(["isLogin","userInfo"])
+    },
     data(){
         return{
            selected:'mine'
@@ -102,6 +103,17 @@ export default {
         },
         toLogin(){
             this.$router.push("/login")
+        },
+        unLog(){
+            if(this.isLogin){
+                this.$router.push('/wenda')
+            }else{
+                this.$toast({
+                    message:"你还没有登录哦",
+                    position:"bottom",
+                    duration:400
+                })
+            }
         }
     }
 }

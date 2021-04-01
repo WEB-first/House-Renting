@@ -18,11 +18,25 @@ import Info_uname from '../components/Info_uname.vue'
 import Info_mingzi from '../components/Info_mingzi.vue'
 import Talk from '../views/Talk'
 import Register from '../views/Register'
+import Login from '../views/Login'
+import Logout from '../components/Logout'
+
+
 
 
 Vue.use(VueRouter)
 
 const routes = [
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login
+  },
+  {
+    path: '/logout',
+    name: 'Logout',
+    component: Logout
+  },
   {
     path: '/register',
     name: 'Register',
@@ -47,11 +61,6 @@ const routes = [
     path: '/phone',
     name: 'Phone',
     component: Phone
-  },
-  {
-    path: '/talk',
-    name: 'Talk',
-    component: Talk
   },
   {
     path: '/recommend',

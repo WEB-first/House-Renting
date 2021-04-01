@@ -45,12 +45,12 @@ export default {
             console.log( 11)
             let ss=window.sessionStorage
             ss.setItem('isLogin',0)
-            this.$store.commit('loginSuccess','')
-            this.$store.state.isLogin=false
+            this.$store.commit('setInfo','')
+            this.$store.state.isLogin=false//加上此行会立即渲染
             ss.setItem('userInfo','')
             this.$router.push("/")
-            console.log(this.$store.state.isLogin)
-            console.log(this.$store.state.userInfo.uname)
+            // console.log(this.$store.state.isLogin)  //首次刷新依然true 刷新之后发生false渲染 无法打印
+            // console.log(this.$store.state.userInfo.uname) 
 
         }
     }
