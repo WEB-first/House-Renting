@@ -12,6 +12,15 @@
         <!-- 下方 -->
         <div id="register">
             <p>新用户注册</p>
+<<<<<<< HEAD
+            <mt-field id="uname" label="用户名" placeholder="请输入用户名" v-model="username"></mt-field>
+            <mt-field label="昵称" placeholder="为自己设置一个昵称吧" v-model="username"></mt-field>
+            <mt-field label="密码" placeholder="请输入密码" type="password" v-modal="password"></mt-field>
+            <mt-field label="确认密码" placeholder="再次输入密码" type="password" v-modal="password"></mt-field>
+            <mt-field label="手机号" placeholder="输入手机号" type="tel" v-model="phone"></mt-field>
+            <mt-field label="身份证" placeholder="请输入身份证号码" type="testarea" v-model="number"></mt-field>
+            <mt-field label="邮箱" placeholder="请输入邮箱" v-model="email"></mt-field>    
+=======
             <mt-field id="uname" @blur.native.capture="checkUsername" label="用户名" placeholder="请输入用户名" v-model="uname" :state="unameState"></mt-field>
             <mt-field label="昵称"  placeholder="为自己设置一个昵称吧" v-model="username"></mt-field>
             <mt-field label="密码" @blur.native.capture="checkUpwd" placeholder="请输入密码" type="password" v-model="upwd" :state="upwdState"></mt-field>
@@ -19,6 +28,7 @@
             <mt-field label="手机号" @blur.native.capture="checkPhone" :state="phoneState" placeholder="输入手机号" type="tel" v-model="phone"></mt-field>
             <mt-field label="身份证" @blur.native.capture="checkIdcard" :state="numberState" placeholder="请输入身份证号码" type="testarea" v-model="number"></mt-field>
             <mt-field label="邮箱" placeholder="请输入邮箱" v-model="email" @blur.native.capture="checkEmail" :state="emailState"></mt-field>
+>>>>>>> 85c95db95bd72e23f65e8959374a4fdaaf845f68
         </div>
         <mt-button @click="checkFrom" id="btn-login" type="danger" size="large">注册</mt-button>
     </div>
@@ -134,7 +144,7 @@ export default {
     color: black;
 }
 .register #register{
-    margin-top: 50px;
+    margin-top: 65px;
     padding-left: 10px;
 }
 .register #register p{
@@ -142,7 +152,7 @@ export default {
     margin-left: 10px;
 }
 .register #uname{
-    margin-top: 10px;
+    margin-top: 15px;
 }
 .register .mint-cell-wrapper{
     background-size: 120% 0px;

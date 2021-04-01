@@ -12,10 +12,10 @@
                 <img src="../assets/logo.png" width="60" height="60">
             </mt-cell>
             <mt-cell title="名字" to="/info_mingzi" is-link >
-                <span>这里是名字</span>
+                <span>{{this.$store.state.userInfo.nickname}}</span>
             </mt-cell>
             <mt-cell title="账号" to="/info_uname" is-link >
-                <span>这里是账号</span>
+                <span>{{this.$store.state.userInfo.uname}}</span>
             </mt-cell>
             <mt-cell title="更多" to="/info_more" is-link value="更多信息"></mt-cell>
             <mt-cell title="安全" to="/info_updatepwd" is-link>

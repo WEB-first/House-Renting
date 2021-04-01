@@ -9,19 +9,19 @@
             </mt-header>
             <!-- 其他信息 -->
             <mt-cell title="性别" to="/info_more_sex" is-link >
-                <span>这里是性别</span>
+                <span>{{this.$store.state.userInfo.sex==1?"男":"女"}}</span>
             </mt-cell>
             <mt-cell title="生日">
-                <span>这里是身份证截取的生日</span>
+                <span>{{this.$store.state.userInfo.shengfenID.substr(6,8)}}</span>
             </mt-cell>
             <mt-cell title="联系方式" to="/info_more_phone" is-link >
-                <span>这里是电话</span>
+                <span>{{this.$store.state.userInfo.phone}}</span>
             </mt-cell>
             <mt-cell title="地址" to="/info_more_add" is-link >
-                <span>这里是地址</span>
+                <span>{{this.$store.state.userInfo.address}}</span>
             </mt-cell>
             <mt-cell title="邮箱" to="/info_more_email" is-link >
-                <span>这里是邮箱</span>
+                <span>{{this.$store.state.userInfo.e-mail}}</span>
             </mt-cell>
         </div>
     </div>

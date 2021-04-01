@@ -1,17 +1,18 @@
 <template>
-  <div class="relist">
+<div infinite-scroll-distance="20" v-infinite-scroll="loadmore" infinite-scroll-disabled="busy" :infinite-scroll-immediate-check="true">
+  <div class="relist"  v-for="(item,i) in houses" :key="i">
     <router-link to="/">
         <div class="list-top">
           <div class="left">
              <img src="../../public/image/house/1.jpg" alt="">
           </div>
           <div class="right">
-            <p><span>高科花园一期</span><span>3室1厅</span><span>120㎡</span></p>
-            <p><span>2300元/月</span><span>新城 东五路</span></p>
+            <p><span>{{item.h_xiaoqu_name}}</span><span>{{item.h_huxing}}</span><span>120㎡</span></p>
+            <p><span>{{item.h_price}}元/月</span><span>{{item.h_position}}</span></p>
           </div>
         </div>
         <div class="list-bot">
-          <p>新益大厦 五路口地铁站 万达广场 明乐园 中山门 金融街</p>
+          <p>{{item.h_zhoubian}}</p>
           <img src="../../public/image/house/1.jpg"/>
           <div>
             <img src="../../public/image/avatar/0.jpg" alt='客服头像'/>
@@ -24,8 +25,18 @@
         </div>
     </router-link>
   </div>
+  <div class="loadbot">人家是有底线的......</div>
+</div>
 </template>
 <style>
+  .loadbot{
+    line-height: 40px;
+    text-align: center;
+    color: #ccc;
+    font-size: 12px;
+    margin-top: -20px;
+    background: #fff;
+  }
   .relist .list-bot>div>.s_img i{
     color: #23CA92;
   }
@@ -111,5 +122,49 @@
 <script>
 export default {
   name: 'RecomList',
+  props:['navactive'],
+  data(){
+    return{
+      houses:[],
+      busy:false,
+      page:1
+    }
+  },
+  methods:{
+    loadHouseList(cdhclass,page){
+      //请求前弹窗开启
+      this.$indicator.open();
+      this.axios.get(`/details?cid=${cdhclass}&${page}`).then(res=>{
+        // console.log(res)
+        this.houses=res.data.results
+        //请求完数据弹窗关闭
+        this.$indicator.close();
+      })
+    },
+    //无限滚动
+    loadmore(){
+      this.busy=true;
+      this.page++;
+      // console.log(`加载下一页，page:${this.page}`);
+      let c=this.navactive;
+      let p=this.page;
+      this.axios.get(`/details?cid=${c}&page=${p}`).then(res=>{
+          //  console.log(res.data.results) 
+           this.houses=this.houses.concat(res.data.results);
+           this.busy=false;     
+      })
+    }
+  },
+  mounted(){
+     //房屋列表数据
+     this.loadHouseList(1)  
+  },
+  watch:{
+    navactive(cdhclass){
+      this.houses=[];
+      this.page=1;
+      this.loadHouseList(cdhclass)  
+    }
+  }
 }
 </script>

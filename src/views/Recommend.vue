@@ -1,24 +1,10 @@
 <template>
   <div class="recommend">
     <mt-navbar fixed v-model="navactive">
-      <mt-tab-item id="1">综合</mt-tab-item>
-      <mt-tab-item id="2">二手房</mt-tab-item>
-      <mt-tab-item id="3">租房</mt-tab-item>
-      <mt-tab-item id="4">新房</mt-tab-item>
+      <mt-tab-item v-for="(item,i) in hclass" :key='i' :id="item.c_id.toString()">{{item.c_name}}</mt-tab-item>
     </mt-navbar>
     <mt-tab-container v-model="navactive">
-      <mt-tab-container-item id="1">
-        <recom-list></recom-list>   
-      </mt-tab-container-item>
-      <mt-tab-container-item id="2">
-        二手房
-       </mt-tab-container-item>
-      <mt-tab-container-item id="3">
-        租房
-      </mt-tab-container-item>
-      <mt-tab-container-item id="4">
-        新房
-      </mt-tab-container-item>
+        <recom-list :navactive="navactive"></recom-list>  
     </mt-tab-container>
     <my-footer :select="selected"></my-footer>
   </div>
@@ -30,19 +16,35 @@
     font-weight: bold;
 }
 .recommend .mint-tab-container{
-  margin-top: 55px;
+  margin: 55px 0;
 }
 </style>
 <script>
 
 import RecomList from '../components/RecomList.vue'
+
 export default {
   components: { RecomList },
   data(){
     return{
        navactive : '1',
+       hclass:[],
        selected:'recommend'
     }
+  },
+  methods:{
+    //加载类别列表，更新顶部导航
+    loadNavItems(){
+      //axios访问类别列表
+      this.axios.get('/hclass').then(res=>{
+        // console.log(res)
+        this.hclass=res.data.results;
+      })
+    }
+  },
+  mounted(){
+    //加载类别列表，更新顶部导航
+    this.loadNavItems();
   }
 }
 </script>

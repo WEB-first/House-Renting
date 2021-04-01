@@ -10,10 +10,10 @@
         <div id="top">
             <div id="avatar"><img src="../assets/logo.png" alt="../assets/logo.png"></div>
             <div>
-                <p>张三</p>
-                <!-- <p>快去登录吧</p> -->
+                <p v-if="this.$store.state.isLogin">{{this.$store.state.userInfo.nickname}}</p>
+                <p v-else @click="toLogin">快去登录吧</p>
                 <p>
-                    <router-link to="/info">个人中心</router-link> 
+                    <router-link v-if="this.$store.state.isLogin" to="/info">个人中心</router-link> 
                 </p>
             </div>
         </div>
@@ -99,6 +99,9 @@ export default {
     methods:{
         logout(){
             this.$router.push("/logout")
+        },
+        toLogin(){
+            this.$router.push("/login")
         }
     }
 }
