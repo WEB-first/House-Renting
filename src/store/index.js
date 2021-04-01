@@ -19,7 +19,11 @@ export default new Vuex.Store({
     }
   },
   actions: {
+<<<<<<< HEAD
    
+=======
+    
+>>>>>>> 8f1974e24da172ecc69cfcd3de7f137dfd0386fd
   },
   modules: {
   }

@@ -48,6 +48,7 @@ export default {
         },
         login(){
             if (this.checkuname()==true){
+<<<<<<< HEAD
                 this.axios.post('/login',`uname=${this.uname}&upwd=${this.upwd}`).then(res=>{
                     // console.log(res)
                     if(res.data.code==200){
@@ -59,6 +60,23 @@ export default {
                         this.$store.commit('setInfo',userInfo)//加上此行立即渲染 但除首次加载仍无法打印
                         // console.log(this.isLogin)//刷新后可以渲染
                         // console.log(this.userInfo.nickname) //数据存在state里面但是无法打印 刷新之后才渲染
+=======
+                this.axios.post('/login',`uname=${this.uname}&upwd=${this.pwd}`).then(res=>{
+                    console.log(res)
+                    if(res.status==200){
+                        this.$indicator.open("登录中...")
+                         //获取用户信息
+                            let userInfo=res.data.result;
+                            this.$store.commit('loginSuccess',userInfo)
+                            let ss=window.sessionStorage
+                            ss.setItem('isLogin',1)
+                            ss.setItem('userInfo',JSON.stringify(userInfo))
+                            // console.log(this.$store.state.userInfo.uname)
+                            console.log(this.$store.state.isLogin)
+                            console.log(sessionStorage.getItem('isLogin'))
+
+
+>>>>>>> 8f1974e24da172ecc69cfcd3de7f137dfd0386fd
                         setTimeout(()=>{
                             this.$indicator.close()
                             this.$router.push('/')
