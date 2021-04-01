@@ -54,8 +54,7 @@ export default {
                         this.$indicator.open("登录中...")
                          //获取用户信息
                             let userInfo=res.data.result;
-                            this.$store.commit('loginSuccess',userInfo)
-                            // this.$store.state.isLogin=true;
+                            // this.$store.commit('loginSuccess',userInfo)
                             let ss=window.sessionStorage
                             ss.setItem('isLogin',1)
                             ss.setItem('userInfo',JSON.stringify(userInfo))
