@@ -1,7 +1,7 @@
 <template>
     <div class="logout">
         <!-- 顶部 -->
-        <mt-header title="忘记密码" fixed>
+        <mt-header title="退出登录" fixed>
           <router-link to="/mine" slot="left">
             <mt-button icon="back"></mt-button>
           </router-link>
@@ -9,7 +9,7 @@
         <!-- 头像 -->
         <div id="avatar">
             <img src="../assets/logo.png" alt="" width="100" height="100">
-            <p>用户名</p>
+            <p>{{this.$store.state.userInfo.uname}}</p>
             <mt-button id="btn-logout" size="large" plain @click="toLogout">退出此账号</mt-button>
         </div>
     </div>
@@ -47,6 +47,7 @@ export default {
             ss.setItem('isLogin',0)
             this.$store.commit('setInfo','')
             this.$store.state.isLogin=false//加上此行会立即渲染
+            
             ss.setItem('userInfo','')
             this.$router.push("/")
             // console.log(this.$store.state.isLogin)  //首次刷新依然true 刷新之后发生false渲染 无法打印

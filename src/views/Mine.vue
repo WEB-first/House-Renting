@@ -17,21 +17,31 @@
         </div>
         <!-- 下半部分   。。。。信息页 -->
         <div id="bottom">
-            <mt-cell title="关注" @click="unLog">
+            <div @click="unLog" id="guanzhu" >
+                <mt-cell  title="关注">
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
-            </mt-cell>
-            <mt-cell title="足迹" @click="unLog">
+                </mt-cell>
+            </div>
+            <div @click="unLog" id="zuji" >
+                <mt-cell  title="足迹">
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
-            </mt-cell>
-            <mt-cell title="设置">
+                </mt-cell>
+            </div>
+            <div @click="unLog" id="shezi" >
+                <mt-cell  title="设置">
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
-            </mt-cell>
-            <mt-cell title="互动" @click="unLog">
+                </mt-cell>
+            </div>
+            <div @click="unLog" id="hudong" >
+                <mt-cell  title="互动">
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
-            </mt-cell>
-            <mt-cell @click="unLog"  title="我的问答">
+                </mt-cell>
+            </div>
+            <div @click="unLog" id="wenda" >
+                <mt-cell  title="我的问答">
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
-            </mt-cell>
+                </mt-cell>
+            </div>
         </div>
         <my-footer :select="selected"></my-footer>
     </div>
@@ -104,9 +114,13 @@ export default {
         toLogin(){
             this.$router.push("/login")
         },
-        unLog(){
+        unLog(event){
             if(this.isLogin){
-                this.$router.push('/wenda')
+                console.log(event.path[3].getAttribute("id"))
+                // 获取当前元素id
+                let id=event.path[3].getAttribute("id")
+                //跳转对应id的页面
+                this.$router.push(`/${id}`)
             }else{
                 this.$toast({
                     message:"你还没有登录哦",

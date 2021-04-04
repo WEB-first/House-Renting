@@ -12,23 +12,13 @@
         <!-- 下方 -->
         <div id="register">
             <p>新用户注册</p>
-<<<<<<< HEAD
-            <mt-field id="uname" label="用户名" placeholder="请输入用户名" :state="unameState" v-model="uname"></mt-field>
-            <mt-field label="昵称" placeholder="为自己设置一个昵称吧" v-model="nickname"></mt-field>
-            <mt-field label="密码" placeholder="请输入密码" :state="upwdState" type="password" v-modal="upwd"></mt-field>
-            <mt-field label="确认密码" placeholder="再次输入密码" :state="cpwdState" type="password" v-modal="cpwd"></mt-field>
-            <mt-field label="手机号" placeholder="输入手机号" :state="phoneState" type="tel" v-model="phone"></mt-field>
-            <mt-field label="身份证" placeholder="请输入身份证号码" :state="numberState" type="testarea" v-model="number"></mt-field>
-            <mt-field label="邮箱" placeholder="请输入邮箱" :state="emailState" v-model="email"></mt-field>    
-=======
             <mt-field id="uname" @blur.native.capture="checkUsername" label="用户名" placeholder="请输入用户名" v-model="uname" :state="unameState"></mt-field>
-            <mt-field label="昵称"  placeholder="为自己设置一个昵称吧" v-model="username"></mt-field>
+            <mt-field label="昵称"  placeholder="为自己设置一个昵称吧" v-model="nickname"></mt-field>
             <mt-field label="密码" @blur.native.capture="checkUpwd" placeholder="请输入密码" type="password" v-model="upwd" :state="upwdState"></mt-field>
             <mt-field label="确认密码" @blur.native.capture="checkCpwd" placeholder="再次输入密码" type="password" v-model="cpwd" :state="cpwdState"></mt-field>
             <mt-field label="手机号" @blur.native.capture="checkPhone" :state="phoneState" placeholder="输入手机号" type="tel" v-model="phone"></mt-field>
             <mt-field label="身份证" @blur.native.capture="checkIdcard" :state="numberState" placeholder="请输入身份证号码" type="testarea" v-model="number"></mt-field>
             <mt-field label="邮箱" placeholder="请输入邮箱" v-model="email" @blur.native.capture="checkEmail" :state="emailState"></mt-field>
->>>>>>> 8f1974e24da172ecc69cfcd3de7f137dfd0386fd
         </div>
         <mt-button @click="checkFrom" id="btn-login" type="danger" size="large">注册</mt-button>
     </div>

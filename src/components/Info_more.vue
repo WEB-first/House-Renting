@@ -9,23 +9,32 @@
             </mt-header>
             <!-- 其他信息 -->
             <mt-cell title="性别" to="/info_more_sex" is-link >
-                <span>{{this.$store.state.userInfo.sex==1?"男":"女"}}</span>
+                <span>{{userInfo.sex==1?"男":"女"}}</span>
             </mt-cell>
             <mt-cell title="生日">
-                <span>{{this.$store.state.userInfo.shengfenID.substr(6,8)}}</span>
+                <span>{{userInfo.shengfenID.substr(6,8)}}</span>
             </mt-cell>
             <mt-cell title="联系方式" to="/info_more_phone" is-link >
-                <span>{{this.$store.state.userInfo.phone}}</span>
+                <span>{{userInfo.phone}}</span>
             </mt-cell>
             <mt-cell title="地址" to="/info_more_add" is-link >
-                <span>{{this.$store.state.userInfo.address}}</span>
+                <span>{{userInfo.address}}</span>
             </mt-cell>
             <mt-cell title="邮箱" to="/info_more_email" is-link >
-                <span>{{this.$store.state.userInfo.e-mail}}</span>
+                <span>{{userInfo["e-mail"]}}</span>
             </mt-cell>
         </div>
     </div>
 </template>
+<script>
+import { mapState } from 'vuex'
+export default{
+     computed:{
+        ...mapState(["isLogin","userInfo"])
+    },
+}
+</script>
+
 <style>
 .info-more .mint-header{
         background-color: #66b081;

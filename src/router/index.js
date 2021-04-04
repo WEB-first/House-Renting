@@ -19,22 +19,22 @@ import Info_mingzi from '../components/Info_mingzi.vue'
 import Talk from '../views/Talk'
 import Register from '../views/Register'
 import Login from '../views/Login'
-<<<<<<< HEAD
 import Logout from '../components/Logout'
-
-
-=======
 import Search from '../views/Search'
 import Address from '../views/Address'
->>>>>>> 8f1974e24da172ecc69cfcd3de7f137dfd0386fd
+import Wenda from '../components/Wenda'
+
 
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-<<<<<<< HEAD
-=======
+    path: '/wenda',
+    name: 'Wenda',
+    component: Wenda
+  },
+  {
     path: '/address',
     name: 'Address',
     component: Address
@@ -45,20 +45,16 @@ const routes = [
     component: Search
   },
   {
->>>>>>> 8f1974e24da172ecc69cfcd3de7f137dfd0386fd
     path: '/login',
     name: 'Login',
     component: Login
   },
   {
-<<<<<<< HEAD
     path: '/logout',
     name: 'Logout',
     component: Logout
   },
   {
-=======
->>>>>>> 8f1974e24da172ecc69cfcd3de7f137dfd0386fd
     path: '/register',
     name: 'Register',
     component: Register
