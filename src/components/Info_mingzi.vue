@@ -5,7 +5,7 @@
           <router-link to="/info" slot="left">
             <mt-button icon="back"></mt-button>
           </router-link>
-          <mt-button id="btn-save" slot="right" @click="updateNick">保存</mt-button>
+          <mt-button id="btn-save" slot="right" @click="updateNick" :disabled="disable">保存</mt-button>
         </mt-header>
         <!-- 修改 -->
         <div id="mingzi">
@@ -18,7 +18,8 @@ import {mapState} from 'vuex'
 export default{
    data(){
        return {
-           nickName:""
+           nickName:"",
+           disable:true
        }
    },
    computed:{
@@ -27,10 +28,41 @@ export default{
    methods:{
        updateNick(){
            let uid=this.$store.state.userInfo.uid
-        //    console.log(this.state.userInfo.uid)
-        // this.axios.post(`/update?${uid}`,"nickname=${this.nickName}").then((res)=>{
-        //     console.log(res)
-        // })
+        //console.log(this.state.userInfo.uid)
+        this.axios.post(`/update?uid=${uid}`,`nickname=${this.nickName}`).then((res)=>{
+            console.log(res)
+            if(res.data.code==200){
+                let ss=window.sessionStorage;
+                // console.log(JSON.parse(sessionStorage.getItem('userInfo')).nickname)
+                let userInfo=JSON.parse(sessionStorage.getItem('userInfo'))
+                userInfo.nickname=this.nickName
+                // console.log(userInfo)          
+                ss.setItem('userInfo',JSON.stringify(userInfo))
+                this.$store.commit('setInfo',userInfo)
+                // console.log(this.$store.state.userInfo)
+                this.$toast({
+                    message:"修改成功",
+                    position:"bottom",
+                    duration:500
+                })
+                this.$router.push('/info')
+            }else{
+                 this.$toast({
+                    message:"系统忙,请稍后再试",
+                    position:"bottom",
+                    duration:500
+                })
+            }
+        })
+       }
+   },
+   watch:{
+       nickName:function(val){
+           if(val!=''){
+               this.disable=false
+           }else{
+               this.disable=true
+           }
        }
    }
 }

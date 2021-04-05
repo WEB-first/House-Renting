@@ -62,10 +62,10 @@ export default {
                         setTimeout(()=>{
                             this.$indicator.close()
                             this.$router.push('/')
-                            console.log(JSON.parse(sessionStorage.getItem('userInfo'))["e-mail"])
+                            console.log(JSON.parse(sessionStorage.getItem('userInfo')).email)
                         },500)
                     }else{
-                        this.toast({
+                        this.$toast({
                             message:"用户名或密码错误",
                             position:"bottom",
                             duration:1000
@@ -79,7 +79,9 @@ export default {
         upwd:function(val){
             if(this.checkuname()&&val!=''){
                 this.disable=false
-            }
+            }else{
+               this.disable=true
+           }
         }
     },
 }

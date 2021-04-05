@@ -21,7 +21,7 @@
                 <span>{{userInfo.address}}</span>
             </mt-cell>
             <mt-cell title="邮箱" to="/info_more_email" is-link >
-                <span>{{userInfo["e-mail"]}}</span>
+                <span>{{userInfo.email}}</span>
             </mt-cell>
         </div>
     </div>

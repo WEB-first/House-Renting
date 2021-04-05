@@ -5,7 +5,7 @@
           <router-link to="/info_more" slot="left">
             <mt-button icon="back"></mt-button>
           </router-link>
-          <mt-button id="btn-save" slot="right">保存</mt-button>
+          <mt-button id="btn-save" slot="right" :disabled="disable" @click="updateAdd">保存</mt-button>
         </mt-header>
         <!-- 修改 -->
         <div id="add">
@@ -36,8 +36,48 @@
 export default{
    data(){
        return {
-           add:""
+           add:"",
+           disable:true
        }
    },
+   methods:{
+       updateAdd(){
+           let uid=this.$store.state.userInfo.uid
+            //console.log(this.state.userInfo.uid)
+            this.axios.post(`/update?uid=${uid}`,`address=${this.add}`).then((res)=>{
+            console.log(res)
+            if(res.data.code==200){
+                    let ss=window.sessionStorage;
+                    let userInfo=JSON.parse(sessionStorage.getItem('userInfo'))
+                    userInfo.address=this.add
+                    // console.log(userInfo)          
+                    ss.setItem('userInfo',JSON.stringify(userInfo))
+                    this.$store.commit('setInfo',userInfo)
+                    // console.log(this.$store.state.userInfo)
+                    this.$toast({
+                        message:"修改成功",
+                        position:"bottom",
+                        duration:500
+                    })
+                    this.$router.push('/info_more')
+                }else{
+                     this.$toast({
+                        message:"系统忙,请稍后再试",
+                        position:"bottom",
+                        duration:500
+                    })
+                }
+            })
+       }
+   },
+   watch:{
+       add:function(val){
+           if(val!=''){
+               this.disable=false
+           }else{
+               this.disable=true
+           }
+       }
+   }
 }
 </script>
