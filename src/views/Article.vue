@@ -22,6 +22,7 @@
       <mt-tab-container-item id="3">二手房面板</mt-tab-container-item>
       <mt-tab-container-item id="4">商业地产面板</mt-tab-container-item>
     </mt-tab-container>
+    <my-footer :select="selected"></my-footer>
   </div>
 </template>
 
@@ -32,6 +33,7 @@ export default {
   data() {
     return {
       navactive: "1",
+      selected:'article'
     };
   },
 };

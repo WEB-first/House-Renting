@@ -10,9 +10,12 @@ import MintUI from 'mint-ui'
 import 'mint-ui/lib/style.min.css'
 Vue.use(MintUI)
 
+// 图片懒加载
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload)
 
 
-axios.defaults.baseURL = 'http://127.0.0.1:3000'
+axios.defaults.baseURL = 'http://renting.applinzi.com'
 Vue.prototype.axios = axios;
 Vue.config.productionTip = false
 

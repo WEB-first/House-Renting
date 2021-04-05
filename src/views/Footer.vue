@@ -6,10 +6,10 @@
         <img  v-else  slot="icon"  src="image/home/icon/nav-icon-jiaoshixinxi.svg"  alt="" />
         首页
       </mt-tab-item>
-      <mt-tab-item id="message">
-        <img  v-if="selected == 'message'"  slot="icon" src="image/home/icon/nav-icon-gonggao_active.svg"  alt="" />
+      <mt-tab-item id="article">
+        <img  v-if="selected == 'article'"  slot="icon" src="image/home/icon/nav-icon-gonggao_active.svg"  alt="" />
         <img  v-else  slot="icon"  src="image/home/icon/nav-icon-gonggao.svg"  alt="" />
-        消息
+        列表
       </mt-tab-item>
       <mt-tab-item id="recommend">
         <img  v-if="selected == 'recommend'"  slot="icon"  src="image/home/icon/nav-icon-baseinfo_active.svg"  alt=""  />
@@ -58,8 +58,8 @@ export default {
       // newvalue 是selected的新值
       if (newvalue == "home") {
         this.$router.push("/");
-      } else if (newvalue == "message") {
-        this.$router.push("/message");
+      } else if (newvalue == "article") {
+        this.$router.push("/article");
       } else if (newvalue == "recommend") {
         this.$router.push("/recommend");
       } else if (newvalue == "mine") {
