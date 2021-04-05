@@ -2,14 +2,21 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-
 import axios from 'axios'
-Vue.prototype.axios = axios;
+import qs from 'qs'
 
-import MintUI from 'mint-ui'
+//配置 MintUI
+import MintUI from 'mint-ui'                                     
 import 'mint-ui/lib/style.min.css'
 Vue.use(MintUI)
 
+// 图片懒加载
+import VueLazyload from 'vue-lazyload'
+Vue.use(VueLazyload)
+
+
+axios.defaults.baseURL = 'http://renting.applinzi.com'
+Vue.prototype.axios = axios;
 Vue.config.productionTip = false
 
 new Vue({
