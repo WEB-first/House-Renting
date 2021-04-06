@@ -17,27 +17,27 @@
         </div>
         <!-- 下半部分   。。。。信息页 -->
         <div id="bottom">
-            <div @click="unLog" id="guanzhu" >
+            <div @click="guanzhu" id="guanzhu" >
                 <mt-cell  title="关注">
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
                 </mt-cell>
             </div>
-            <div @click="unLog" id="zuji" >
+            <div @click="zuji">
                 <mt-cell  title="足迹">
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
                 </mt-cell>
             </div>
-            <div @click="unLog" id="shezi" >
+            <div @click="shezhi">
                 <mt-cell  title="设置">
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
                 </mt-cell>
             </div>
-            <div @click="unLog" id="hudong" >
+            <div @click="hudong">
                 <mt-cell  title="互动">
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
                 </mt-cell>
             </div>
-            <div @click="unLog" id="wenda" >
+            <div @click="wenda">
                 <mt-cell  title="我的问答">
                 <img slot="icon" src="../assets/logo.png" width="24" height="24">
                 </mt-cell>
@@ -114,13 +114,54 @@ export default {
         toLogin(){
             this.$router.push("/login")
         },
-        unLog(event){
+        guanzhu(){
             if(this.isLogin){
-                console.log(event.path[3].getAttribute("id"))
-                // 获取当前元素id
-                let id=event.path[3].getAttribute("id")
                 //跳转对应id的页面
-                this.$router.push(`/${id}`)
+                this.$router.push(`/guanzhu`)
+            }else{
+                this.$toast({
+                    message:"你还没有登录哦",
+                    position:"bottom",
+                    duration:400
+                })
+            }
+        },
+        zuji(){
+            if(this.isLogin){
+                this.$router.push(`/zuji`)
+            }else{
+                this.$toast({
+                    message:"你还没有登录哦",
+                    position:"bottom",
+                    duration:400
+                })
+            }
+        },
+        shezhi(){
+            if(this.isLogin){
+                this.$router.push(`/shezhi`)
+            }else{
+                this.$toast({
+                    message:"你还没有登录哦",
+                    position:"bottom",
+                    duration:400
+                })
+            }
+        },
+        hudong(){
+            if(this.isLogin){
+                this.$router.push(`/hudong`)
+            }else{
+                this.$toast({
+                    message:"你还没有登录哦",
+                    position:"bottom",
+                    duration:400
+                })
+            }
+        },
+        wenda(){
+            if(this.isLogin){
+                this.$router.push(`/wenda`)
             }else{
                 this.$toast({
                     message:"你还没有登录哦",

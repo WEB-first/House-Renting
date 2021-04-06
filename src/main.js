@@ -15,7 +15,9 @@ import VueLazyload from 'vue-lazyload'
 Vue.use(VueLazyload)
 
 
-axios.defaults.baseURL = 'http://renting.applinzi.com'
+// axios.defaults.baseURL = 'http://renting.applinzi.com'
+axios.defaults.baseURL = 'http://127.0.0.1:3000'
+
 Vue.prototype.axios = axios;
 Vue.config.productionTip = false
 

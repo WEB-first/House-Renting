@@ -49,7 +49,7 @@ export default {
         login(){
             if (this.checkuname()==true){
                 this.axios.post('/login',`uname=${this.uname}&upwd=${this.upwd}`).then(res=>{
-                    console.log(res)
+                    // console.log(res)
                     if(res.data.code==200){
                         this.$indicator.open('登录中')
                         let userInfo=res.data.result;
@@ -62,7 +62,7 @@ export default {
                         setTimeout(()=>{
                             this.$indicator.close()
                             this.$router.push('/')
-                            console.log(JSON.parse(sessionStorage.getItem('userInfo')).email)
+                            // console.log(JSON.parse(sessionStorage.getItem('userInfo')).email)
                         },500)
                     }else{
                         this.$toast({
