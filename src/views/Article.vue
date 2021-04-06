@@ -2,25 +2,11 @@
   <div>
     <!-- 导航 -->
     <mt-navbar v-model="navactive" fixed>
-      <mt-tab-item id="1" style="font-size: 15px">推荐</mt-tab-item>
-      <mt-tab-item id="2">新房</mt-tab-item>
-      <mt-tab-item id="3">二手房</mt-tab-item>
-      <mt-tab-item id="4">商业地产</mt-tab-item>
+       <mt-tab-item v-for="(item,i) in hclass" :key='i' :id="item.c_id.toString()">{{item.c_name}}</mt-tab-item>
     </mt-navbar>
     <!-- 面板 -->
-    <mt-tab-container v-model="navactive" style="margin-top: 60px">
-      <mt-tab-container-item id="1">
-        <article-list></article-list>  
-        <article-list></article-list>
-        <article-list></article-list>        
-        <article-list></article-list>
-        <article-list></article-list>
-        <article-list></article-list>
-        <article-list></article-list>
-      </mt-tab-container-item>
-      <mt-tab-container-item id="2">新房面板</mt-tab-container-item>
-      <mt-tab-container-item id="3">二手房面板</mt-tab-container-item>
-      <mt-tab-container-item id="4">商业地产面板</mt-tab-container-item>
+    <mt-tab-container v-model="navactive" style="margin-top:55px">
+      <article-list :navactive="navactive"></article-list>
     </mt-tab-container>
     <my-footer :select="selected"></my-footer>
   </div>
@@ -33,15 +19,31 @@ export default {
   data() {
     return {
       navactive: "1",
-      selected:'article'
+      selected:'article',
+      hclass:[],
     };
   },
-};
+  methods:{
+    //加载类别列表，更新顶部导航
+    loadNavItems(){
+      //axios访问类别列表
+      this.axios.get('/hclass').then(res=>{
+        // console.log(res)
+        this.hclass=res.data.results;
+      })
+    }
+  },
+  mounted(){
+    //加载类别列表，更新顶部导航
+    this.loadNavItems();
+  }
+}
 </script>
 
 <style scoped>
 .mint-navbar .mint-tab-item.is-selected {
-    border-bottom: 3px solid #548C27;
-    color: #548C27;
+    border-bottom: 3px solid #22CA93;
+    color: #22CA93;
+    font-weight: bold;
 }
 </style>

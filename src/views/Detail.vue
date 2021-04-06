@@ -156,7 +156,6 @@ export default {
     },
   },
   mounted() {
-    console.log(window.screen.width);
     let picwidth = 1080;
     let picheight = 607;
     let screenwidth = window.screen.width;
