@@ -2,7 +2,7 @@
   <div>
     <!-- 头部标题栏 -->
     <div id="header">
-      <router-link to="/address" id="option">西安</router-link>
+      <router-link to="/address" id="option">西安市</router-link>
       <input
         type="text"
         @click="search"
@@ -35,10 +35,19 @@
           :speed="150"
         >
           <mt-swipe-item>
-            <img src="image/home/swipe/1.jpg" alt="" />
+            <img src="../assets/1.jpg" alt="" />
           </mt-swipe-item>
           <mt-swipe-item>
-            <img src="image/home/swipe/2.jpg" alt="" />
+            <img src="../assets/2.jpg" alt="" />
+          </mt-swipe-item>
+          <mt-swipe-item>
+            <img src="../assets/3.jpg" alt="" />
+          </mt-swipe-item>
+          <mt-swipe-item>
+            <img src="../assets/4.jpg" alt="" />
+          </mt-swipe-item>
+          <mt-swipe-item>
+            <img src="../assets/5.jpg" alt="" />
           </mt-swipe-item>
         </mt-swipe>
       </mt-tab-container-item>
@@ -123,7 +132,6 @@ export default {
     this.initSwipeHeight();
     this.axios.get('/article').then(res=>{
       this.articleList = res.data
-      console.log(res.data)
     })
   },
 };
