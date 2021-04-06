@@ -135,7 +135,7 @@ export default {
       //请求前弹窗开启
       this.$indicator.open();
       this.axios.get(`/details?cid=${cdhclass}&${page}`).then(res=>{
-        // console.log(res)
+        console.log(res)
         this.houses=res.data.results
         //请求完数据弹窗关闭
         this.$indicator.close();

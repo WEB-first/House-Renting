@@ -1,5 +1,6 @@
 <template>
-  <div class="articleItem">
+<div infinite-scroll-distance="20" v-infinite-scroll="loadmore" infinite-scroll-disabled="busy" :infinite-scroll-immediate-check="true">
+  <div class="articleItem" v-for="(item,i) in article" :key="i">
     <router-link to="/detail">
       <!-- 图像 -->
       <div class="article-img">
@@ -8,12 +9,11 @@
       <div class="article-wrapper">
         <!-- 标题 -->
         <div>
-          <p class="article-title">凤城十二路地铁口 凯润大厦明光路</p>
+          <p class="article-title">{{item.title}}</p>
         </div>
         <!-- 地址 -->
         <div class="article_address">
-          <span class="address">经济开发区</span>
-          <span class="address">欧亚大厦</span>
+          <span class="address">{{item.a_area}}</span>
         </div>
         <!-- 条件 -->
         <div class="article-tag">
@@ -32,17 +32,62 @@
         </div>
         <!-- 价格 -->
         <div class="article-foot">
-          <P class="price">700元/月</P>
-          <p class="house_type">2室1厅</p>
-          <p class="house_type">20㎡</p>
+          <P class="price">{{item.a_price}}月</P>
+          <p class="house_type">{{item.a_type}}</p>
+          <p class="house_type">{{item.a_daxiao}}</p>
         </div>
       </div>
     </router-link>
   </div>
+</div>
 </template>
 <script>
 export default {
   name: "ArticleList",
+  props:['navactive'],
+  data(){
+    return{
+      article:[],
+      busy:false,
+      page:1
+    }
+  },
+  methods:{
+    loadArticleList(cdhclass,page){
+      //请求前弹窗开启
+      this.$indicator.open();
+      this.axios.get(`/article?aid=${cdhclass}&${page}`).then(res=>{
+        console.log(res)
+        this.article=res.data
+        //请求完数据弹窗关闭
+        this.$indicator.close();
+      })
+    },
+    //无限滚动
+    loadmore(){
+      this.busy=true;
+      this.page++;
+      // console.log(`加载下一页，page:${this.page}`);
+      let c=this.navactive;
+      let p=this.page;
+      this.axios.get(`/article?aid=${c}&page=${p}`).then(res=>{
+          //  console.log(res.data) 
+           this.article=this.article.concat(res.data);
+           this.busy=false;     
+      })
+    }
+  },
+  mounted(){
+     //列表数据
+     this.loadArticleList(1)  
+  },
+  watch:{
+    navactive(cdhclass){
+      this.article=[];
+      this.page=1;
+      this.loadArticleList(cdhclass)  
+    }
+  }
 };
 </script>
 <style scoped>
